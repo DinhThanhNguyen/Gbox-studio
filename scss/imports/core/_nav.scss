@@ -1,0 +1,131 @@
+.navigators {
+    .container {
+        border-bottom: 2px solid $title-main-cl;
+        &.no-border__bottom {
+            border-bottom: none;
+        }
+    }
+    &__parents {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            padding: 22px 0;
+            @include midflex;
+            @include text($fz-text, "SB", $lh-textbox, $black-cl, upperCase);
+        }
+        &-sub {
+            ul {
+                @include midflex;
+                padding: 11.5px 0;
+                li {
+                    a {
+                        padding: 0 20px;
+                        @include midflex;
+                        img {
+                            height: 80%;
+                            object-fit: cover;
+                        }
+                    }
+                    &:nth-child(3) {
+                        @include hidden();
+                        @include transform(translateY(-100%));
+                        @include transition($t);
+                    }
+                }
+            }
+        }
+    }
+    &__mobile {
+        width: 100%;
+        height: 100vh;
+        background-color: $main-bg-cl;
+        position: fixed;
+        top: 60px;
+        z-index: 10000;
+        @include hidden;
+        @include transition($t);
+        @include transform(translateX(-100%));
+        ul {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 35px;
+            li {
+                a {
+                    @include text(30px, "Thin", $lh-text-infor, $black-cl, upperCase);
+                }
+                &:not(:last-child) {
+                    padding-bottom: 30px;
+                }
+                &:hover {
+                    a {
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        &.active {
+            @include transform(translateX(0));
+            @include visible;
+            @include transition($t);
+        }
+        @include tablet {
+            width: 50%;
+        }
+        @include mobile {
+            width: 100%;
+        }
+    }
+    &.fixtop {
+        background-color: rgba($color: $title-main-cl, $alpha: 0.5);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        @include transition(background-color $t);
+        .container {
+            border: none;
+        }
+        .navigators__parents {
+            a {
+                color: $white-cl;
+            }
+            &-sub {
+                ul {
+                    li {
+                        a {
+                            color: $white-cl;
+                        }
+                    }
+                    // li:nth-child(3) {
+                    //     @include visible();
+                    //     @include transform(translateY(0));
+                    //     @include transition($t);
+                    // }
+                }
+            }
+        }
+    }
+    @include tablet {
+        &__parents {
+            &-sub {
+                width: 57%;
+            }
+        }
+    }
+    @include mobile {
+        height: 60px;
+        .container {
+            display: none;
+        }
+    }
+    @include mobile-xxs {
+        height: 60px;
+        .container {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,296 @@
+.studio-rental {
+    .rental {
+        --pdsection: 70px;
+        .container {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            column-gap: 50px;
+            &::after {
+                content: "";
+                width: 100%;
+                height: 2px;
+                background-color: $black-cl;
+                display: block;
+                margin-bottom: 55px;
+                grid-column: 1/3;
+            }
+        }
+        &__infor {
+            width: 100%;
+            height: 640px;
+            background-color: $title-main-cl;
+            padding-left: 15px;
+            padding-top: var(--pdsection);
+            .acreage {
+                h2 {
+                    @include text(32px, "EX", $lh-text-infor, $white-cl, upperCase);
+                    letter-spacing: 1px;
+                    padding: 30px 0 25px 0;
+                }
+                h3 {
+                    @include text($fz-text, "Regular", $lh-text-infor, $white-cl, upperCase);
+                    letter-spacing: 2px;
+                }
+                ul {
+                    li {
+                        @include text(14px, "Regular", $lh-textbox, $white-cl, none);
+                    }
+                }
+            }
+        }
+        &__form {
+            margin-right: 10%;
+            .company-title {
+                padding-top: var(--pdsection);
+                @include text(28px, "EX", $lh-text-infor, $black-cl, upperCase);
+            }
+            .form_company {
+                display: flex;
+                justify-content: space-between;
+                &-infor,
+                &-contact {
+                    max-width: 45%;
+                    width: 45%;
+                }
+                .form-group {
+                    .form-label {
+                        @include text($fz-text, "Regular", 66px, $black-cl, none);
+                    }
+                    .form-control {
+                        border: 0;
+                        outline: none;
+                        background: none;
+                        height: 20px;
+                        border-bottom: 1px solid $black-cl;
+                    }
+                    .form-message {
+                        font-size: $fz-text;
+                        line-height: calc($fz-text + 4px);
+                        padding: 4px 0 0;
+                    }
+                    &.invalid .form-control {
+                        border-bottom: 1px solid #f33a58;
+                    }
+                }
+            }
+            .booking-details {
+                padding-top: var(--pdsection);
+                @include text(28px, "EX", $lh-text-infor, $black-cl, upperCase);
+            }
+            .studio-number {
+                @include text($fz-text, "Regular", 66px, $black-cl, none);
+            }
+            .studio__list {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 45%;
+                &-number {
+                    border: 1px solid $black-cl;
+                    background-color: $black-cl;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    p {
+                        width: 100%;
+                        height: 100%;
+                        @include midflex;
+                        @include text(20px, "Bold", normal, #f4f4f4, upperCase);
+                    }
+                    &:hover {
+                        background-color: $main-bg-cl;
+                        p {
+                            color: $black-cl;
+                        }
+                    }
+                    &.select {
+                        background-color: $main-bg-cl;
+                        p {
+                            color: $black-cl;
+                        }
+                    }
+                }
+            }
+            .form_booking {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                &-from,
+                &-to {
+                    max-width: 45%;
+                    width: 45%;
+                }
+                .form-group {
+                    .form-label {
+                        @include text($fz-text, "Regular", 66px, $black-cl, none);
+                    }
+                    .textarea {
+                        border: 1px solid $black-cl;
+                        outline: none;
+                        background: none;
+                        resize: none;
+                    }
+                    input[type="date"] {
+                        width: 100%;
+                        background: none;
+                        outline: none;
+                        border: none;
+                        border: 1px solid $black-cl;
+                        padding: 8px;
+                        min-height: 20px;
+                    }
+                }
+                &-from {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    .form-group:nth-child(2) {
+                        display: none;
+                    }
+                    .note {
+                        margin-top: 10px;
+                        display: inline-block;
+                        @include text($fz-text, "Regular", normal, $black-cl, none);
+                    }
+                }
+                &-to {
+                    .note {
+                        margin-top: 10px;
+                        display: inline-block;
+                        @include text($fz-text, "Regular", normal, $black-cl, none);
+                    }
+                }
+                .image {
+                    position: absolute;
+                    left: 50%;
+                    bottom: 3%;
+                    transform: translateX(-50%);
+                    width: 20px;
+                    height: 20px;
+                    .svg {
+                        width: 20px;
+                        height: 20px;
+                    }
+                    svg {
+                        * {
+                            fill: #525355;
+                        }
+                    }
+                    @include tablet {
+                        bottom: 52%;
+                    }
+                }
+            }
+            .form-reference {
+                .form-group {
+                    .form-label {
+                        @include text($fz-text, "Regular", 66px, $black-cl, none);
+                    }
+                    .form-control {
+                        border: none;
+                        outline: none;
+                        background: none;
+                        border: 1px solid $black-cl;
+                        padding: 8px;
+                    }
+                }
+            }
+            .booking {
+                flex-direction: row-reverse;
+                padding: 65px 0;
+                p {
+                    max-width: 200px;
+                    text-align: left;
+                    padding-left: 1rem;
+                    width: 60%;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+                h2 {
+                    @include mid;
+                    @include text(20px, "EX", $lh-text-infor, $main-bg-cl, upperCase);
+                }
+                &__now {
+                    border: none;
+                }
+                &__now:hover {
+                    h2 {
+                        color: $title-main-cl;
+                    }
+                }
+            }
+        }
+        @include tablet {
+            .rental__form {
+                margin-right: 0;
+                .form_booking {
+                    .image {
+                        bottom: 3%;
+                    }
+                }
+            }
+        }
+        @include mobile {
+            .container {
+                display: flex;
+                flex-direction: column;
+                padding: 0 15px;
+            }
+            &__infor {
+                height: 105px;
+                background-color: initial;
+                --pdsection: 35px;
+                display: flex;
+                .acreage {
+                    margin-left: 25px;
+                    h2 {
+                        padding: 0;
+                    }
+                    h2,
+                    h3,
+                    ul > li {
+                        color: $black-cl;
+                    }
+                }
+            }
+            .rental__form {
+                .form_company {
+                    flex-direction: column;
+                    &-infor,
+                    &-contact {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                }
+                .studio__list {
+                    max-width: 80%;
+                }
+                .form_booking {
+                    flex-direction: column;
+                    &-from {
+                        max-width: 100%;
+                        width: 100%;
+                        .form-group:nth-child(2) {
+                            display: flex;
+                        }
+                    }
+                    &-to {
+                        max-width: 100%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column-reverse;
+                        .form-group:first-child {
+                            display: none;
+                        }
+                    }
+                    .image {
+                        bottom: 11%;
+                        transform: translateX(-50%) rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+}
