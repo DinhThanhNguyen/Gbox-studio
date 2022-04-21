@@ -114,14 +114,13 @@
             }
             .form_booking {
                 display: flex;
+                align-items: center;
                 justify-content: space-between;
+                flex-direction: column;
                 position: relative;
-                &-from,
-                &-to {
-                    max-width: 45%;
-                    width: 45%;
-                }
                 .form-group {
+                    max-width: 45%;
+                    width: 100%;
                     .form-label {
                         @include text($fz-text, "Regular", 66px, $black-cl, none);
                     }
@@ -130,35 +129,27 @@
                         outline: none;
                         background: none;
                         resize: none;
-                    }
-                    input[type="date"] {
-                        width: 100%;
-                        background: none;
-                        outline: none;
-                        border: none;
-                        border: 1px solid $black-cl;
-                        padding: 8px;
-                        min-height: 20px;
+                        font-size: $fz-text;
                     }
                 }
-                &-from {
+                &-requirement {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    .note {
+                        margin-top: 10px;
+                        display: inline-block;
+                        @include text($fz-text, "Regular", normal, $black-cl, none);
+                    }
+                }
+                &-date {
+                    width: 100%;
                     display: flex;
                     justify-content: space-between;
-                    flex-direction: column;
-                    .form-group:nth-child(2) {
-                        display: none;
-                    }
-                    .note {
-                        margin-top: 10px;
-                        display: inline-block;
-                        @include text($fz-text, "Regular", normal, $black-cl, none);
-                    }
-                }
-                &-to {
-                    .note {
-                        margin-top: 10px;
-                        display: inline-block;
-                        @include text($fz-text, "Regular", normal, $black-cl, none);
+                    align-items: center;
+                    div.t-check-in, div.t-check-out {
+                        border: 1px solid $black-cl;
                     }
                 }
                 .image {
@@ -268,22 +259,24 @@
                     max-width: 80%;
                 }
                 .form_booking {
-                    flex-direction: column;
-                    &-from {
+                    .form-group {
+                        max-width: initial;
+                    }
+                    &-requirement {
+                        flex-direction: column;
                         max-width: 100%;
                         width: 100%;
-                        .form-group:nth-child(2) {
-                            display: flex;
+                        .form-group {
+                            .note {
+                                @include hidden;
+                            }
                         }
                     }
-                    &-to {
+                    &-date {
                         max-width: 100%;
                         width: 100%;
                         display: flex;
-                        flex-direction: column-reverse;
-                        .form-group:first-child {
-                            display: none;
-                        }
+                        flex-direction: column;
                     }
                     .image {
                         bottom: 11%;

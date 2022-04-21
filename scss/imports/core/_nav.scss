@@ -10,31 +10,32 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        a {
-            padding: 22px 0;
-            @include midflex;
-            @include text($fz-text, "SB", $lh-textbox, $black-cl, upperCase);
+        li {
+            a {
+                padding: 22px 0;
+                @include midflex;
+                @include text($fz-text, "SB", $lh-textbox, $black-cl, upperCase);
+                @include transition(color $t);
+            }
         }
         &-sub {
-            ul {
-                @include midflex;
-                padding: 11.5px 0;
-                li {
+            @include midflex;
+            li {
+                a {
+                    padding: 22px 20px;
+                }
+                &:nth-child(3) {
                     a {
                         padding: 0 20px;
-                        @include midflex;
-                        img {
-                            height: 80%;
-                            object-fit: cover;
-                        }
                     }
-                    &:nth-child(3) {
-                        @include hidden();
-                        @include transform(translateY(-100%));
-                        @include transition($t);
-                    }
+                    @include hidden();
+                    @include transform(translateY(-100%));
+                    @include transition($t);
                 }
             }
+        }
+        a:hover {
+            color: $main-bg-cl;
         }
     }
     &__mobile {
@@ -80,10 +81,13 @@
         }
     }
     &.fixtop {
-        background-color: rgba($color: $title-main-cl, $alpha: 0.5);
+        background-color: rgba($color: $title-main-cl, $alpha: 1);
         position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
+        max-width: $max-width;
         z-index: 100;
         @include transition(background-color $t);
         .container {
@@ -92,19 +96,21 @@
         .navigators__parents {
             a {
                 color: $white-cl;
+                @include transition(color $t);
+            }
+            a:hover {
+                color: $main-bg-cl;
             }
             &-sub {
-                ul {
-                    li {
-                        a {
-                            color: $white-cl;
-                        }
+                li {
+                    a {
+                        color: $white-cl;
                     }
-                    // li:nth-child(3) {
-                    //     @include visible();
-                    //     @include transform(translateY(0));
-                    //     @include transition($t);
-                    // }
+                    &:nth-child(3) {
+                        @include visible();
+                        @include transform(translateY(0));
+                        @include transition($t);
+                    }
                 }
             }
         }

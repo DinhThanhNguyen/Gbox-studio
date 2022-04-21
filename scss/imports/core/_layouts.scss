@@ -13,12 +13,9 @@ body {
     max-width: $max-width;
     -webkit-font-smoothing: antialiased;
     margin: auto;
-    @include text($fz-text, Arial, $lh-textbox, $text-black-cl, none);
     background: #f4f4f4;
-    @include custom-scrollbar();
-    // main {
-    //     padding-top: $height-header;
-    // }
+    @include custom-scrollbar;
+    @include text($fz-text, Arial, $lh-textbox, $text-black-cl, none);
     &.noScroll{
         overflow: hidden;
     }

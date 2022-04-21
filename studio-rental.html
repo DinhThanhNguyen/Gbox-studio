@@ -20,7 +20,6 @@
 	<link rel="stylesheet" href="dest/style.min.css">
 	<link rel="stylesheet" href="dest/fonts.css">
 	<link rel="stylesheet" href="dest/stylelibs.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -44,19 +43,17 @@
 	</header>
 	<nav class="navigators">
 		<div class="container">
-			<div class="navigators__parents">
-				<a href="about.html">About</a>
-				<div class="navigators__parents-sub">
-					<ul>
-						<li><a href="studio.html">Studio</a></li>
-						<li><a href="studio-rental.html">Rental</a></li>
-						<li><a href="index.html"><img src="img/Logo-main.png" alt=""></a></li>
-						<li><a href="cafe-gbox.html">Cafe</a></li>
-						<li><a href="allwork.html">Work</a></li>
+			<ul class="navigators__parents">
+				<li class="navigators__item"><a href="about.html">About</a></li>
+					<ul class="navigators__parents-sub">
+						<li class="navigators__item"><a href="studio.html">Studio</a></li>
+						<li class="navigators__item"><a href="studio-rental.html">Rental</a></li>
+						<li class="navigators__item"><a href="index.html"><img src="img/Logo-main.png" alt=""></a></li>
+						<li class="navigators__item"><a href="cafe-gbox.html">Cafe</a></li>
+						<li class="navigators__item"><a href="allwork.html">Work</a></li>
 					</ul>
-				</div>
-				<a href="contact.html">contact</a>
-			</div>
+				<li class="navigators__item"><a href="contact.html">contact</a></li>
+			</ul>
 		</div>
 		<div class="navigators__mobile">
 			<ul>
@@ -78,7 +75,7 @@
 						<h2>01</h2>
 					</div>
 					<div class="acreage">
-						<h2>Rental</h2>
+						<h3>Rental</h3>
 						<h3>Dimensions</h3>
 						<ul>
 							<li>87ft × 92ft × 31ft</li>
@@ -87,7 +84,7 @@
 					</div>
 				</div>
 				<div class="rental__form">
-					<h2 class="company-title">Company details</h2>
+					<h3 class="company-title">Company details</h3>
 					<form action="" method="POST" id="rental_form">
 						<div class="form_company">
 							<div class="form_company-infor">
@@ -125,7 +122,7 @@
 								</div>
 							</div>
 						</div>
-						<h2 class="booking-details">Booking details</h2>
+						<h3 class="booking-details">Booking details</h3>
 						<p class="studio-number">Studio</p>
 						<div class="studio__list">
 							<div class="studio__list-number select">
@@ -142,7 +139,7 @@
 							</div>
 						</div>
 						<div class="form_booking">
-							<div class="form_booking-from">
+							<div class="form_booking-requirement">
 								<div class="form-group">
 									<label for="catering" class="form-label">Catering requirements:</label>
 									<textarea rows="5" class="textarea"></textarea>
@@ -152,22 +149,15 @@
 									<textarea rows="5" class="textarea"></textarea>
 									<span class="note">Please note: All lighting hire to go through Gbox Studios</span>
 								</div>
-								<div class="form-group">
-									<label for="booking_date-from" class="form-label">Booking Duration:</label>
-									<div id="picker-from"></div>
-									<input type="hidden" id="result" value="" />
-								</div>
 							</div>
-							<div class="form_booking-to">
-								<div class="form-group">
-									<label for="lighting" class="form-label">Lighting requirements:</label>
-									<textarea rows="5" class="textarea"></textarea>
-									<span class="note">Please note: All lighting hire to go through Gbox Studios</span>
+							<div class="form_booking-date t-datepicker">
+								<div class="form-group datepicker_from">
+									<label for="booking_date-from" class="form-label">Booking Duration:</label>
+									<div class="t-check-in"></div>
 								</div>
-								<div class="form-group">
+								<div class="form-group datepicker_to">
 									<label for="booking_date-from" class="form-label" style="opacity: 0; visibility: hidden; user-select: none;">Booking Duration:</label>
-									<div id="picker-to"></div>
-									<input type="hidden" id="result" value="" />
+									<div class="t-check-out"></div>
 								</div>
 							</div>
 							<div class="image">
