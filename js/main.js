@@ -14,45 +14,54 @@ $(window).on('load', function () {
 
 
     $('.svg').svgToInline();
-
-    
-    //AOS Animation JS
-    AOS.init({
-        duration: 1000,
-        offset: 50,
-        anchorPlacement: 'top-bottom',
-    });
-
 })
+
+//AOS Animation JS
+AOS.init({
+    anchorPlacement: 'top-bottom',
+    easing: 'easy-in-out',
+    once: false,
+    duration: 1000,
+});
+
+// let tabUI = $('.tab__ui');
+// let cartItem = $('.project__list-item');
+// cartItem.removeClass('aos-animate');
+// tabUI.on('click', function() {
+//     setTimeout(function() {
+//         cartItem.addClass('aos-animate');
+//     }, 400);
+// })
 
 
 
 //Lazy loading
 function lazyLoadingFunction() {
-
-    window.lazyFunctions = {
-        aos: function (element) {
-            console.log('ready')
-            // element.setAttribute("data-aos", "fade-up");
-            // element.setAttribute("data-aos-delay", "100");
-        },
-      };
-
-      function executeLazyScript(element) {
-        var lazyFunctionName = element.getAttribute("data-lazy-function");
-        var lazyFunction = lazyFunctions[lazyFunctionName];
-        if (!lazyFunction) return;
-        lazyFunction(element);
-      }
-
-
-
     let lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
+
         unobserve_entered: true,
-        callback_enter: executeLazyScript
+        // callback_enter: executeLazyScript
 
     });
+
+    // window.lazyFunctions = {
+    //     aos: function (element) {
+    //         console.log('ready')
+    //         // element.setAttribute("data-aos", "fade-up");
+    //         // element.setAttribute("data-aos-delay", "100");
+    //     },
+    // };
+
+    // function executeLazyScript(element) {
+    //     var lazyFunctionName = element.getAttribute("data-lazy-function");
+    //     var lazyFunction = lazyFunctions[lazyFunctionName];
+    //     if (!lazyFunction) return;
+    //     lazyFunction(element);
+    // }
+
+
+
 }
 lazyLoadingFunction();
 
