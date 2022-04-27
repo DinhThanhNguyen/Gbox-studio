@@ -48,14 +48,14 @@
             }
         }
         &-image{
+            position: relative;
             width: 100%;
             height: 530px;
-            position: relative;
             overflow: hidden;
             cursor: pointer;
             img{
-                min-width: 100%;
-                min-height: 100%;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
                 @include mid;
             }

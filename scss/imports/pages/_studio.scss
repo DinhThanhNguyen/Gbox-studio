@@ -52,15 +52,6 @@
                         }
                     }
                 }
-                .more:hover{
-                    .arrow{
-                        svg{
-                            *{
-                                fill: #ffde00;
-                            }
-                        }
-                    }
-                }
                 &::before{
                     content: '';
                     width: 100%;
@@ -99,6 +90,15 @@
                     .more{
                         a{
                             color: $white-cl;
+                        }
+                        .arrow{
+                            @include transform(translateY(10px));
+                            @include transition($t);
+                            svg{
+                                *{
+                                    fill: #ffde00;
+                                }
+                            }
                         }
                     }
                     &::before{

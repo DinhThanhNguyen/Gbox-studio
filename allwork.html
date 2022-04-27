@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="dest/stylelibs.min.css">
 </head>
 <body>
+	<div id="preloader"></div>
 	<header>
 		<div class="container">
 			<div class="hamburgers">
@@ -251,24 +252,24 @@
 					</div>
 				</div>
 				<div class="project__list">
-					<!-- <div class="project__list-item">
-						<div class="film" data-video-src="[BTS] - Gbox Studio.mp4">
+					<div class="project__list-item">
+						<div class="film" data-src="UeSL2kUOljY">
 							<img src=" img/Home-3.jpg" alt="">
 							<div class="btn-play"><img src="./img/play-video.svg" alt="" class="svg"></div>
 						</div>
 					</div>
 					<div class="project__list-item">
-						<div class="film" data-video-src="Javascript.mp4">
+						<div class="film" data-src="hjIxfXKmkjk">
 							<img src="img/Home-4.jpg" alt="">
 							<div class="btn-play"><img src="./img/play-video.svg" alt="" class="svg"></div>
 						</div>
 					</div>
 					<div class="project__list-item">
-						<div class="film" data-video-src="Javascript-1.mp4">
+						<div class="film" data-src="MGhw6XliFgo">
 							<img src="img/Home-6.jpg" alt="">
 							<div class="btn-play"><img src="./img/play-video.svg" alt="" class="svg"></div>
 						</div>
-					</div> -->
+					</div>
 				</div>
 				<div class="allproject__bottom">
 					<div class="allproject__bottom-more">
@@ -352,12 +353,15 @@
 			</div>
 		</div>
 	</footer>
-	<div class="video-popup" id="video-popup">
-		<div class="video-wrapper">
-			<video id="video-iframe" src="img/" autoplay controls="true" preload="none" poster="./img/studio-1.jpg"></video>
-			<div class="btn-close"><img src="img/close.png" alt=""></div>
-		</div>
-	</div>
+	<div class="overlay">
+        <div class="modal">
+            <div class="modal__inner">
+                <iframe class="iframe lazy" data-src="https://www.youtube.com/embed/"
+				allowfullscreen></iframe>
+                <div class="modal__close">X</div>
+            </div>
+        </div>
+    </div>
 	<script src="dest/jsmain.min.js"></script>
 	<script src="./js/validate.js"></script>
 	<script src="js/main.js"></script>

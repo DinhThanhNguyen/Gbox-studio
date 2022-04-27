@@ -1,37 +1,30 @@
-//REPLACE SVG
-// import {DateRangePicker} from './libs/date-range-picker';
-
+let loader = $('#preloader');
+window.addEventListener('load', function () {
+    this.setTimeout(function () {
+        loader.css("display", "none");
+    }, 500)
+})
 $(window).on('load', function () {
     fixedMenu();
     toggleMenuInMobile();
     validateFormFooter();
     backToTop();
     homePage();
-    allWorkPage();
     studioRetalPage();
     cafePage();
     studioDetailPage();
 
-
+    //REPLACE SVG
     $('.svg').svgToInline();
+    //AOS Animation JS
+    AOS.init({
+        anchorPlacement: 'top-bottom',
+        easing: 'easy-in-out',
+        once: false,
+        duration: 1000,
+    });
 })
 
-//AOS Animation JS
-AOS.init({
-    anchorPlacement: 'top-bottom',
-    easing: 'easy-in-out',
-    once: false,
-    duration: 1000,
-});
-
-// let tabUI = $('.tab__ui');
-// let cartItem = $('.project__list-item');
-// cartItem.removeClass('aos-animate');
-// tabUI.on('click', function() {
-//     setTimeout(function() {
-//         cartItem.addClass('aos-animate');
-//     }, 400);
-// })
 
 
 
@@ -140,7 +133,7 @@ function studioRetalPage() {
     function selectStudio() {
         let $studioNumber = $('.studio__list-number')
 
-        $studioNumber.on('click', function() {
+        $studioNumber.on('click', function () {
             $studioNumber.removeClass('select');
             $(this).toggleClass('select');
         })
@@ -148,11 +141,11 @@ function studioRetalPage() {
     selectStudio();
 
     function customInputTypeDate() {
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.t-datepicker').tDatePicker({
                 autoClose: true,
                 dateRangesHover: true,
-                numCalendar : 2,
+                numCalendar: 2,
                 iconDate: '',
                 titleCheckIn: 'DD/MM/YYYY',
                 titleCheckOut: 'DD/MM/YYYY',
@@ -186,19 +179,20 @@ function validateFormFooter() {
         }
     })
 }
-//Tabs UI Index - Allwork page
 
-function allWorkPage() {
+//Open Popup video
+function homePage() {
+    //Tabs UI Index - Allwork page
     function tabUI() {
         let projectLists = $('.project__list')
         let tabItems = $('.project__groups ul li').toArray();
         tabItems.forEach((tabItem, index) => {
             const listCurrent = projectLists[index]
-        
+
             tabItem.onclick = function () {
                 $('.project__groups ul li.bold').removeClass('bold')
                 $('.project__list.active').removeClass('active')
-        
+
                 this.classList.add('bold')
                 listCurrent.classList.add('active')
             }
@@ -207,21 +201,17 @@ function allWorkPage() {
     tabUI();
 
 
-}
-
-//Open Popup video
-function homePage() {
-
+    //Modal video
+    let popupVideo = $('.overlay')
+    let videoIframe = document.querySelector('.iframe')
     let btnPlayVideos = $('.film').toArray()
-    let popupVideo = $('.video-popup')
-    let videoIframe = document.querySelector('#video-iframe')
+    let btnCloseVideo = $('.modal__close');
     const body = $('body')
-
     function showModalVideo() {
         btnPlayVideos.forEach((btnPlayVideo) => {
             btnPlayVideo.addEventListener('click', function () {
-                let dataSrc = this.getAttribute('data-video-src')
-                videoIframe.src = 'img/' + dataSrc
+                let dataSrc = this.getAttribute('data-src')
+                videoIframe.src = 'https://www.youtube.com/embed/' + dataSrc
                 popupVideo.addClass('open')
                 body.addClass('noScroll');
             })
@@ -229,22 +219,20 @@ function homePage() {
     }
     showModalVideo();
 
+    //Close Popup Video
     function hideModalVideo() {
         popupVideo.removeClass('open')
         videoIframe.src = ''
         body.removeClass('noScroll');
     }
-    //Close Popup Video
-    $('.btn-close').on('click', hideModalVideo)
-    popupVideo.on('click', hideModalVideo)
-    $('.js__modal-container').on('click', function (e) {
-        e.stopPropagation();
-    })
-    $(document).keydown(function (e) {
-        if (e.which === 27) {
-            hideModalVideo()
-        }
-    })
+    btnCloseVideo.on('click', hideModalVideo)
+    if ($('.overlay.open')) {
+        $(document).keydown(function (e) {
+            if (e.which === 27) {
+                hideModalVideo()
+            }
+        })
+    }
 
 }
 
@@ -257,7 +245,7 @@ function cafePage() {
         galleryList[to].classList.add('active');
         currentIndex = to
     }
-    
+
     $('.btn-control .next').on('click', function () {
         if (currentIndex < galleryList.length - 1) {
             galleryTo(currentIndex + 1);

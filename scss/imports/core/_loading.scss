@@ -1,0 +1,6 @@
+#preloader {
+    @include full-fixed;
+    background: $black-bg-cl url(../img/circle-loader.gif) no-repeat center center;
+    background-size: 15%;
+    z-index: 1000;
+}
