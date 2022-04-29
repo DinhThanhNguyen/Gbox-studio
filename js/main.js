@@ -180,7 +180,6 @@ function validateFormFooter() {
     })
 }
 
-//Open Popup video
 function homePage() {
     //Tabs UI Index - Allwork page
     function tabUI() {
@@ -216,22 +215,19 @@ function homePage() {
                 body.addClass('noScroll');
             })
         })
+        btnCloseVideo.on('click', hideModalVideo)
+        // popupVideo.keydown(function (e) {
+        //     if (e.which === 27) {
+        //         hideModalVideo()
+        //     }
+        // })
     }
     showModalVideo();
-
     //Close Popup Video
     function hideModalVideo() {
         popupVideo.removeClass('open')
         videoIframe.src = ''
         body.removeClass('noScroll');
-    }
-    btnCloseVideo.on('click', hideModalVideo)
-    if ($('.overlay.open')) {
-        $(document).keydown(function (e) {
-            if (e.which === 27) {
-                hideModalVideo()
-            }
-        })
     }
 
 }
@@ -270,9 +266,8 @@ function studioDetailPage() {
             cellAlign: 'left',
             contain: true,
             wrapAround: true,
-            prevNextButtons: true,
+            prevNextButtons: false,
             pageDots: false,
-            fullscreen: true
         });
     })
     $('.flickity-prev').on('click', function () {
@@ -281,15 +276,31 @@ function studioDetailPage() {
     $('.flickity-next').on('click', function () {
         mainCarousel.flickity('next');
     });
-    $('.flickity-fullscreen').on('click', function () {
-        mainCarousel.flickity('viewFullscreen');
-    });
-    if (window.matchMedia("(min-width: 415px)").matches) {
-        $('.main-carousel-item').on('click', function (e) {
-            mainCarousel.flickity('viewFullscreen');
-        });
-    }
+    // $('.flickity-fullscreen').on('click', function () {
+    //     mainCarousel.flickity('viewFullscreen');
+    // });
+    // if (window.matchMedia("(min-width: 415px)").matches) {
+    //     $('.main-carousel-item').on('click', function (e) {
+    //         mainCarousel.flickity('viewFullscreen');
+    //     });
+    // }
 }
+
+function projectDetailPage() {
+    let projectCarousel = $('.project__details-image');
+    $(document).ready(function () {
+        projectCarousel.flickity({
+            // options
+            cellAlign: 'left',
+            contain: true,
+            wrapAround: true,
+            prevNextButtons: true,
+            pageDots: false,
+        });
+    })
+
+}
+projectDetailPage();
 
 
 
@@ -447,4 +458,5 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 $(window).load(function () {
     initPhotoSwipeFromDOM('.gallery__list');
     initPhotoSwipeFromDOM('.project__details-image');
+    initPhotoSwipeFromDOM('.main-carousel');
 });

@@ -2,6 +2,7 @@ img{
     display: block;
     margin: auto;
     max-width: 100%;
+    object-fit: cover;
 }
 a{
     color: $black-cl;

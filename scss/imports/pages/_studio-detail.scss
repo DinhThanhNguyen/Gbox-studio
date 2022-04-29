@@ -13,34 +13,18 @@
             }
         }
         &-image {
+            display: block;
+            height: 497px;
             .main-carousel {
-                width: 100%;
-                height: 467px;
-                .flickity-prev-next-button {
-                    display: none;
-                }
-                .flickity-fullscreen-button {
-                    display: none;
-                }
+                display: block;
+                height: 100%;
                 &-item {
+                    display: block;
                     width: 100%;
-                    height: inherit;
-                    position: relative;
+                    height: 100%;
+                    object-fit: cover;
                     img {
-                        width: 100%;
-                        height: inherit;
-                        @include mid;
-                        object-fit: cover;
-                    }
-                }
-                &.is-fullscreen {
-                    height: 100vh;
-                    z-index: 1000;
-                    .flickity-prev-next-button {
-                        display: block;
-                    }
-                    .flickity-fullscreen-button {
-                        display: block;
+                        min-width: 100%;
                     }
                 }
             }
@@ -367,6 +351,9 @@
     }
     @include mobile {
         .studio__carousel {
+            &-image {
+                
+            }
             &-control {
                 .btn {
                     display: none;
