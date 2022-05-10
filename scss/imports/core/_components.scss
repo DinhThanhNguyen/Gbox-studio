@@ -159,35 +159,43 @@
     }
 }
 .btn-previous {
-    @include midflex;
-    a {
-        @include text($fz-text, "Regular", $lh-text-infor, $black-cl, none);
-        padding-right: 20px;
-    }
-    .svg {
-        cursor: pointer;
-        width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+    img {
+        width: 20px;
+        height: 20px;
+        margin-left: 15px;
         @include transform(translateX(0px));
         @include transition($t);
     }
     &:hover {
-        .svg {
+        img {
             @include transform(translateX(-10px));
             @include transition($t);
         }
     }
 }
 .number {
+    --sizeNumberStudio: 120px;
     background-color: $main-bg-cl;
     @include midflex;
     flex-direction: column;
-    width: 120px;
-    height: 120px;
+    width: var(--sizeNumberStudio);
+    height: var(--sizeNumberStudio);
     p {
         @include text($fz-text-m, "Regular", $lh-textbox, $black-cl, upperCase);
     }
     h2 {
         @include text(62px, "bold", 62px, $black-cl, upperCase);
+    }
+    @include mobile {
+        --sizeNumberStudio: 100px;
+        h2 {
+            font-size: 40px;
+            line-height: 50px;
+        }
     }
 }
 .more {
@@ -227,12 +235,12 @@
     }
 }
 .overlay {
+    background-color: rgba($color: #000000, $alpha: 0.7);
     @include full-fixed;
     @include hidden;
     @include transform(scale(0));
     transform-origin: center center;
     @include transition(all $t easy-in-out);
-    background-color: rgba($color: #000000, $alpha: 0.7);
     z-index: 1000;
     .modal {
         position: absolute;
@@ -243,7 +251,6 @@
         border: #fff 2px solid;
         .modal__inner {
             position: relative;
-            // overflow: hidden;
             display: block;
             width: 100%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
@@ -268,7 +275,7 @@
                 z-index: 10000;
                 cursor: pointer;
                 @include midflex;
-                @include text(18px, 'Bold', normal, $black-cl, upperCase);
+                @include text(18px, "Bold", normal, $black-cl, upperCase);
             }
         }
     }

@@ -13,22 +13,18 @@
             }
         }
         &-image {
-            display: block;
-            height: 497px;
             .main-carousel {
-                display: block;
-                height: 100%;
-                &-item {
-                    display: block;
+                position: relative;
+                width: 100%;
+                height: 465px;
+                overflow: hidden;
+                &__item {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    img {
-                        min-width: 100%;
-                    }
                 }
             }
-            .btn-slider.mobile {
+            .btn-control.mobile {
                 display: none;
                 .image {
                     width: 24px;
@@ -60,19 +56,16 @@
             display: flex;
             justify-content: flex-end;
             .btn-previous {
-                width: fit-content;
-                justify-content: flex-end;
-                a:first-child {
-                    padding: 22px 20px 22px 0;
-                }
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 22px 0;
                 img {
                     width: 20px;
                     height: 20px;
+                    margin-left: 15px;
                     @include transform(translateX(0px));
                     @include transition($t);
-                }
-                a:last-child {
-                    padding: 22px 0;
                 }
                 &:hover {
                     img {
@@ -143,9 +136,8 @@
     }
     .studio__price {
         .container {
-            overflow: hidden;
             display: grid;
-            grid-template-columns: repeat(2, 50%);
+            grid-template-columns: repeat(2, calc(50% - 15px));
             grid-template-rows: repeat(2, auto);
             gap: 60px;
             .item3 {
@@ -163,6 +155,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            .studio__price-description {
+                margin: 15px 0;
+            }
             table {
                 width: auto;
                 border: 1px solid $black-cl;
@@ -184,17 +179,16 @@
             flex-direction: column;
             &__area {
                 width: 58%;
-                height: 74%;
-                border: 2px solid;
-                border-color: #ff0000 #29be7a #29be7a #ff0000;
-                background-color: #525355;
+                height: 80%;
                 position: relative;
+                overflow: hidden;
                 &-client {
                     background-color: $main-bg-cl;
                     position: absolute;
-                    top: -2px;
-                    right: -2px;
+                    top: 0;
+                    right: 0;
                     padding: 35px 20px;
+                    z-index: 1;
                     h4 {
                         @include text(12px, "Bold", $lh-textbox, #090909, upperCase);
                     }
@@ -202,15 +196,40 @@
                         @include text(12px, "Regular", $lh-textbox, #090909, normal);
                     }
                 }
-                &-dimension {
+                &::before {
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: conic-gradient(
+                        #fd004c,
+                        #fe9000,
+                        #fff020,
+                        #3edf4b,
+                        #3363ff,
+                        #b102b7,
+                        #fd004c
+                    );
+                }
+                &::after {
+                    content: '';
+                    width: 96%;
+                    height: 96%;
+                    position: absolute;
+                    top: 2%;
+                    left: 2%;
+                    background-color: #525355;
+                }
+                .dimensions {
                     position: absolute;
                     top: 55%;
                     left: 10%;
-                    h4 {
-                        @include text(12px, "Bold", $lh-textbox, #f4f4f4, upperCase);
-                    }
-                    p {
-                        @include text(12px, "Regular", $lh-textbox, #f4f4f4, normal);
+                    z-index: 1;
+                    @include text(12px, "Bold", $lh-textbox, #f4f4f4, upperCase);
+                    span {
+                        @include text(12px, "Regular", $lh-textbox, #f4f4f4, none);
                     }
                 }
             }
@@ -219,8 +238,8 @@
             width: 100%;
             &__list {
                 display: grid;
-                grid-template-columns: repeat(2, 50%);
-                gap: 30px;
+                grid-template-columns: repeat(2, calc(50% - 15px));
+                grid-gap: 30px;
                 margin: 30px 0;
                 ul {
                     li {
@@ -279,30 +298,8 @@
     @include tablet {
         .studio__carousel {
             &-image {
-                .main-carousel.is-fullscreen {
-                    background-color: rgba($color: $black-cl, $alpha: .7);
-                    height: 100vh;
-                    .main-carousel-item {
-                        height: 50vh;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        img {
-                            height: 50vh;
-                        }
-                    }
-                    .flickity-fullscreen-button {
-                        top: 25%;
-                    }
-                    .flickity-prev-next-button {
-                        width: 36px;
-                        height: 36px;
-                    }
-                }
-                .btn-slider.mobile {
-                    display: block;
-                    .previous, .next {
-                        top: 42%;
-                    }
+                .main-carousel {
+                    height: 350px;
                 }
             }
             &-control {
@@ -322,7 +319,7 @@
         }
         .studio__price {
             .container {
-                gap: 30px;
+                grid-gap: 30px;
             }
             .pricing {
                 table {
@@ -335,16 +332,8 @@
             }
             .floorplan {
                 &__area {
-                    width: 58%;
-                    height: 63%;
-                    &-client {
-                        padding: 25px 10px;
-                    }
-                }
-            }
-            .specs {
-                &__list {
-                    gap: 15px;
+                    width: 70%;
+                    height: 70%;
                 }
             }
         }
@@ -352,7 +341,9 @@
     @include mobile {
         .studio__carousel {
             &-image {
-                
+                .main-carousel {
+                    height: 240px;
+                }
             }
             &-control {
                 .btn {
@@ -379,13 +370,11 @@
             }
             .floorplan {
                 width: 100%;
-                height: 323px;
+                height: 350px;
                 &__area {
                     width: 100%;
-                    height: 83%;
-                    &-client {
-                        padding: 40px;
-                    }
+                    height: 100%;
+                    margin-top: 15px;
                 }
             }
             .specs {

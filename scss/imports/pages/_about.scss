@@ -61,6 +61,7 @@
             }
         }
         @include mobile{
+            padding-top: 0;
             --heightAbout: 900px;
             top: -66px;
             .about__us-textbox{
@@ -82,27 +83,8 @@
                 right: 0;
             }
         }
-        @include mobile-xxs{
-            --heightAbout: 900px;
-            top: -10px;
-            .about__us-textbox{
-                padding-left: 0;
-                .title-about{
-                    max-width: 220px;
-                    font-size: 28px;
-                }
-                .description{
-                    padding-left: 15px;
-                    font-size: 16px;
-                    line-height: 34px;
-                }
-                .booking{
-                    padding-left: 15px;
-                }
-            }
-            .image{
-                right: 0;
-            }
-        }
+    }
+    @include mobile {
+        padding-bottom: 0;
     }
 }

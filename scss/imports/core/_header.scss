@@ -1,7 +1,6 @@
 header{
-    width: 100%;
     position: relative;
-    left: 0;
+    width: 100%;
     height: $height-header;
     background-color: $title-main-cl;
     z-index: 100;
@@ -98,21 +97,7 @@ header{
     @include mobile{
         position: fixed;
         top: 0;
-        left: 0;
-        height: 60px;
-        .container{
-            --WH-logo: 37px;
-            .hamburgers{
-                opacity: 1;
-                pointer-events: auto;
-            }
-        }
-    }
-    @include mobile-xxs{
-        height: 60px;
-        position: fixed;
-        top: 0;
-        left: 0;
+        width: 100%;
         .container{
             --WH-logo: 37px;
             .hamburgers{

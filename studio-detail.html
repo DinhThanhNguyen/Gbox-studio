@@ -72,41 +72,32 @@
 		<section class="studio__carousel">
 			<div class="container">
 				<div class="studio__carousel-back">
-					<div class="btn-previous">
-						<a href="studio.html">Back to all</a>
-						<a href="studio.html"><img src="img/left-arrow.svg" alt=""></a>
-					</div>
+					<a href="studio.html" class="btn-previous">Back to all 
+						<img src="img/left-arrow.svg" alt="">
+					</a>
 				</div>
 				<div class="studio__carousel-image">
 					<div class="main-carousel" itemscope data-pswp-uid="1">
-						<figure class="main-carousel-item lazy">
-							<a href="img/studio-detail-1.jpg" data-size="1600x900">
-								<img src="img/studio-detail-1.jpg">
-							</a>
-						</figure>
-						<figure class="main-carousel-item lazy">
+						<figure class="main-carousel__item">
 							<a href="img/studio-detail-2.jpeg" data-size="1600x900">
 								<img src="img/studio-detail-2.jpeg">
 							</a>
 						</figure>
-						<figure class="main-carousel-item lazy">
+						<figure class="main-carousel__item">
+							<a href="img/studio-detail-1.jpg" data-size="1600x900">
+								<img src="img/studio-detail-1.jpg">
+							</a>
+						</figure>
+						<figure class="main-carousel__item">
 							<a href="img/studio-detail-3.jpeg" data-size="1600x900">
 								<img src="img/studio-detail-3.jpeg">
 							</a>
 						</figure>
-						<figure class="main-carousel-item lazy">
+						<figure class="main-carousel__item">
 							<a href="img/studio-detail-4.jpeg" data-size="1600x900">
-								<img src="img/studio-detail-4.jpeg">
+								<img class="lazy" data-src="img/studio-detail-4.jpeg">
 							</a>
 						</figure>
-					</div>
-					<div class="btn-slider mobile">
-						<div class="previous flickity-prev">
-							<div class="image"><img src="img/left-chevron.svg" alt="Previous image" class="svg"></div>
-						</div>
-						<div class="next flickity-next">
-							<div class="image"><img src="img/right-chevron.svg" alt="Next image" class="svg"></div>
-						</div>
 					</div>
 				</div>
 				<div class="studio__carousel-control">
@@ -126,7 +117,7 @@
 							<p>Download FloorPlan</p>
 							<div class="image"><img src="img/icon-plan.svg" alt="icon-plan"></div>
 						</div>
-						<div class="btn-fullScreen flickity-fullscreen">
+						<div class="btn-fullScreen">
 							<p>Full Screen</p>
 							<div class="image"><img src="img/fullscreen.svg" alt="" class="svg">
 							</div>
@@ -177,10 +168,7 @@
 							<h4>Client area</h4>
 							<p>2.5mW x 10mL</p>
 						</div>
-						<div class="floorplan__area-dimension">
-							<h4>Dimensions</h4>
-							<p>18mW x 18mL x 7mH</p>
-						</div>
+						<h4 class="dimensions">Dimensions <br> <span>18mW x 18mL x 7mH</span></h4>
 					</div>
 				</div>
 				<div class="specs item3">

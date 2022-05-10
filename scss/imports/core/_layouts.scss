@@ -19,4 +19,9 @@ body {
     &.noScroll{
         overflow: hidden;
     }
+    main {
+        @include mobile {
+            padding-top: $height-header;
+        }
+    }
 }
