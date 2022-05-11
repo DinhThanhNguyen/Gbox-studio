@@ -59,7 +59,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                padding: 22px 0;
+                padding: 20px 0;
                 img {
                     width: 20px;
                     height: 20px;
@@ -84,6 +84,23 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                .btn-fullScreen {
+                    @include midflex;
+                    margin: 0 30px;
+                    cursor: pointer;
+                    p {
+                        padding-right: 15px;
+                    }
+                    .image {
+                        width: 25px;
+                        height: 25px;
+                        @include midflex;
+                        .svg {
+                            cursor: pointer;
+                            width: 15px;
+                        }
+                    }
+                }
                 .previous,
                 .next {
                     display: flex;
@@ -97,7 +114,6 @@
                         @include transition($t);
                     }
                     p {
-                        @include text($fz-text, "Regular", $lh-text-infor, $black-cl, none);
                         padding-right: 15px;
                     }
                 }
@@ -127,10 +143,6 @@
                         }
                     }
                 }
-                .btn-fullScreen {
-                    margin: 0 30px;
-                    cursor: pointer;
-                }
             }
         }
     }
@@ -149,7 +161,8 @@
             @include text(32px, "EX", $lh-text-infor, #39382f, none);
         }
         &-description {
-            @include text(14px, "Regular", $lh-textbox, #2d2e2e, none);
+            font-size: 14px;
+            color: #2d2e2e;
         }
         .pricing {
             display: flex;
@@ -164,7 +177,8 @@
                 tr {
                     border: 1px solid $black-cl;
                     td {
-                        @include text(14px, "Regular", normal, #2d2e2e, none);
+                        font-size: 14px;
+                        color: #2d2e2e;
                         padding: 20px 20px 20px 60px;
                         &.text-right {
                             text-align: right;
@@ -178,7 +192,7 @@
             justify-content: space-between;
             flex-direction: column;
             &__area {
-                width: 58%;
+                width: 73%;
                 height: 80%;
                 position: relative;
                 overflow: hidden;
@@ -190,10 +204,12 @@
                     padding: 35px 20px;
                     z-index: 1;
                     h4 {
-                        @include text(12px, "Bold", $lh-textbox, #090909, upperCase);
+                        line-height: $lh-textbox;
+                        text-transform: uppercase;
                     }
                     p {
-                        @include text(12px, "Regular", $lh-textbox, #090909, normal);
+                        line-height: $lh-textbox;
+                        color: #090909;
                     }
                 }
                 &::before {
@@ -227,9 +243,11 @@
                     top: 55%;
                     left: 10%;
                     z-index: 1;
-                    @include text(12px, "Bold", $lh-textbox, #f4f4f4, upperCase);
+                    line-height: $lh-textbox;
+                    color: #f4f4f4;
+                    text-transform: uppercase;
                     span {
-                        @include text(12px, "Regular", $lh-textbox, #f4f4f4, none);
+                        color: #f4f4f4;
                     }
                 }
             }

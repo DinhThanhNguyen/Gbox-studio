@@ -17,6 +17,8 @@ $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
 
 /*font families*/
 $font-stack: "Open Sans", sans-serif;
+$primary-font: 'Regular', sans-serif;
+$secondary-font: 'Bold', sans-serif;
 
 /*headings typo*/
 $height-header: 73px;
@@ -26,7 +28,9 @@ $lh-textbox: 20px;
 $lh-text-infor: 30.48px;
 
 $fz-text-m: 11px;
+$fz-title-m: 14px;
 $lh-text-m: normal;
+$lts-title-m: 2px;
 
 /*GRID - media queries breakpoints*/
 $xxs-min: 320px;
