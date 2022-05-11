@@ -136,6 +136,7 @@ function studioRetalPage() {
   }
   selectStudio();
 
+  //Custom Input Type Date
   function customInputTypeDate() {
     $(document).ready(function () {
       $(".t-datepicker").tDatePicker({
