@@ -142,7 +142,7 @@ function studioRetalPage() {
       $(".t-datepicker").tDatePicker({
         autoClose: true,
         dateRangesHover: true,
-        numCalendar: 2,
+        numCalendar: 1,
         iconDate: "",
         titleCheckIn: "DD/MM/YYYY",
         titleCheckOut: "DD/MM/YYYY",
