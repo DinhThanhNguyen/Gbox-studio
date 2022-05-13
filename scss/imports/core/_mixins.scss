@@ -29,48 +29,6 @@
 	}
 }
 
-@mixin maxW($args) {
-	@media (max-width: $args) {
-		@content;
-	}
-}
-
-@mixin minW($args) {
-	@media (max-width: $args) {
-		@content;
-	}
-}
-
-@mixin minH($args) {
-	@media (min-height: $args) {
-		@content;
-	}
-}
-
-@mixin maxH($args) {
-	@media (max-height: $args) {
-		@content;
-	}
-}
-
-@mixin desktop_lc {
-	@media screen and (min-width: $sm-min) and (max-width: $md-max) and (orientation: landscape) {
-		@content;
-	}
-}
-
-@mixin tablet_lc {
-	@media screen and (min-width: $xs-min) and (max-width: $sm-max) and (orientation: landscape) {
-		@content;
-	}
-}
-
-@mixin mobile_lc {
-	@media screen and (max-width: $xs-max) and (orientation: landscape) {
-		@content;
-	}
-}
-
 @mixin br($radius) {
 	border-radius: $radius;
 	background-clip: padding-box; /* stops bg color from leaking outside the border: */
@@ -188,8 +146,6 @@
 	body::-webkit-scrollbar-track {
 		border-radius: 100rem;
 	}
-
-
 	body::-webkit-scrollbar-thumb:hover {
 		background-color: rgba($color: $title-main-cl, $alpha: .5);
 	}

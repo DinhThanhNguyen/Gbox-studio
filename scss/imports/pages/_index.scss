@@ -45,14 +45,6 @@
                 }
             }
         }
-        @include mobile-xxs{
-            padding-top: 40px;
-            &__textbox{
-                .description{
-                    display: none;
-                }
-            }
-        }
     }
     .project{
         margin-bottom: 70px;

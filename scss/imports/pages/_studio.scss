@@ -107,22 +107,6 @@
                 grid-template-rows: 375px;
             }
         }
-        @include tablet_lc {
-            .container {
-                grid-template-rows: 400px;
-            }
-            .studio__list-item {
-                .studio__description {
-                    .number {
-                        height: 100px;
-                        h2 {
-                            font-size: 40px;
-                            line-height: 50px;
-                        }
-                    }
-                }
-            }
-        }
         @include mobile {
             .container {
                 grid-template-columns: 1fr;

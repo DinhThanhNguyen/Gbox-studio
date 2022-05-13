@@ -98,8 +98,12 @@ footer {
 							outline: none;
 							background: none;
 							resize: none;
+							overflow: auto;
 							border-bottom: 1px solid $black-cl;
 							@include text($fz-text, 'SB', $lh-text-infor, $black-cl, none);
+							&::-webkit-scrollbar  {
+								display: none;
+							}
 						}
 					}
 				}
@@ -161,26 +165,6 @@ footer {
 		}
 	}
 	@include mobile {
-		height: 500px;
-		background-size: 100% 255px;
-		.container{
-			.footer__left{
-				width: 100%;
-				text-align: center;
-				ul{
-					li{
-						&:nth-child(3){
-							padding: initial;
-						}
-					}
-				}
-			}
-			.footer__right{
-				display: none;
-			}
-		}
-	}
-	@include mobile-xxs {
 		height: 500px;
 		background-size: 100% 255px;
 		.container{
