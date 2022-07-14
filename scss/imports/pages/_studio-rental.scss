@@ -135,8 +135,13 @@
                 }
             }
             .booking {
+                width: 100%;
                 flex-direction: row-reverse;
-                margin: 65px 0;
+                justify-content: flex-end;
+                margin: 65px auto;
+                border: none;
+                outline: none;
+                background: none;
                 & p {
                     max-width: 200px;
                     text-align: left;
@@ -147,12 +152,10 @@
                     }
                 }
                 &__now {
+                    margin-left: 0;
                     @include midflex;
-                    @include text(20px, "EX", $lh-text-infor, $main-bg-cl, upperCase);
+                    @include text(20px, "EX", 1, $main-bg-cl, upperCase);
                     @include transition(all $t linear);
-                }
-                &__now {
-                    border: none;
                 }
                 &__now:hover {
                     color: $title-main-cl;
