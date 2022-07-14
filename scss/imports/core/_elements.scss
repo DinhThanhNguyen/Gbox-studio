@@ -3,6 +3,9 @@ img{
     margin: auto;
     max-width: 100%;
     object-fit: cover;
+    &.full-div {
+        min-width: 100%;
+    }
 }
 a{
     color: $black-cl;

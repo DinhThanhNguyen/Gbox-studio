@@ -18,13 +18,7 @@
 }
 
 @mixin mobile {
-	@media screen and (min-width: 320px) and (max-width: $xs-max) {
-		@content;
-	}
-}
-
-@mixin mobile-xxs {
-	@media (max-width: $xxs-max) {
+	@media screen and (max-width: $xs-max) {
 		@content;
 	}
 }

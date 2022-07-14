@@ -1,9 +1,7 @@
 .allwork{
-    .allproject{
+    .featured{
         .container{
             padding-top: 55px;
-            padding-left: inherit;
-            padding-right: inherit;
             &::after{
                 content: '';
                 width: 100%;
@@ -15,30 +13,33 @@
         }
         &__bottom{
             display: flex;
-            padding-top: 70px;
             justify-content: flex-end;
             position: relative;
             &-more{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 position: absolute;
                 left: 50%;
                 @include transform(translateX(-50%));
-                a{
+                p{
                     @include text($fz-text, 'SB', $lh-text-infor, $black-cl, upperCase);
                     padding-bottom: 15px;
                 }
                 .image{
-                    align-self: center;
-                    width: 20px;
-                    height: 20px;
-                    @include transform(translateY(0));
-                    @include transition($t);
+                    svg {
+                        align-self: center;
+                        width: 20px;
+                        height: 20px;
+                        @include transform(translateY(0));
+                        @include transition($t);
+                    }
                 }
                 &:hover{
                     .image{
-                        @include transform(translateY(10px));
-                        @include transition($t);
+                        svg {
+                            @include transform(translateY(10px));
+                        }
                     }
                 }
             }
@@ -49,29 +50,7 @@
                 justify-content: center;
                 align-items: center;
                 &-more{
-                    position: initial;
-                    margin-top: 60px;
-                    @include transform(translateX(0));
-                }
-                .booking{
-                    flex-direction: column;
-                    p{
-                        text-align: center;
-                    }
-                    &__now{
-                        margin-top: 15px;
-                        margin-left: 0;
-                    }
-                }
-            }
-        }
-        @include mobile-xxs {
-            .allproject__bottom{
-                flex-direction: column-reverse;
-                justify-content: center;
-                align-items: center;
-                &-more{
-                    position: initial;
+                    position: unset;
                     margin-top: 60px;
                     @include transform(translateX(0));
                 }

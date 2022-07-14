@@ -4,123 +4,66 @@ footer {
 	background-repeat: repeat-x;
 	background-position: bottom;
 	.container{
-		display: flex;
-		justify-content: space-around;
 		.footer__left{
-			width: 50%;
 			ul{
-				width: 100%;
 				li{
-					width: 100%;
 					@include text($fz-text, 'SB', $lh-text-infor, $black-cl, upperCase);
 					letter-spacing: 1px;
 					&:nth-child(3){
-						padding: 30px 0;
+						margin: 30px 0;
 					}
 				}
 			}
 		}
 		.footer__right{
 			p{
-				max-width: 40%;
 				@include text($fz-text, 'SB', $lh-text-infor, $black-cl, upperCase);
 				letter-spacing: 1px;
-				span{
-					display: inline-block;
-				}
 			}
 			&-form{
-				display: flex;
-				justify-content: space-between;
-				width: 100%;
-				margin-top: 50px;
 				#form-footer{
-					width: 100%;
-					display: flex;
-					justify-content: space-between;
-					align-items: flex-start;
+					margin-top: 10px;
 					.form-group{
-						padding-bottom: 10%;
+						.form-label{
+							margin-top: 20px;
+							@include text($fz-text-m, 'SB', $lh-text-infor, $black-cl, none);
+						}
+						.form-control{
+							border: 0;
+							outline: none;
+							background: none;
+							border-bottom: 1px solid $black-cl;
+							@include text($fz-text-m, 'SB', $lh-textbox, $black-cl, none);
+						}
+						.form-message{
+							font-size: $fz-text-m;
+							line-height: 1;
+							padding: 4px 0 0;
+						}
 						&.invalid .form-control{
 							border-bottom: 1px solid #f33a58;
 						}
 					}
 				}
-				#form-left{
-					display: flex;
-					flex-direction: column;
-					width: 48%;
-				}
-				#form-right{
-					display: flex;
-					flex-direction: column;
-					width: 48%;
-				}
-				.form-label{
-					@include text($fz-text, 'SB', $lh-textbox, $black-cl, none);
-					&:not(:nth-child(1)){
-						padding-top: 12px;
-					}
-				}
-				.form-control{
-					border: 0;
+				.form-footer__submit{
+					margin-left: 15px;
+					margin-right: 15px;
+					margin-top: auto;
+					margin-left: auto;
+					text-align: center;
 					outline: none;
 					background: none;
-					border-bottom: 1px solid $black-cl;
-					@include text($fz-text, 'SB', $lh-text-infor, $black-cl, none);
-				}
-				.form-message{
-					font-size: $fz-text;
-					line-height: calc($fz-text + 4px);
-    				padding: 4px 0 0;
-				}
-				.message__text{
-					display: flex;
-					flex-direction: column;
-					.message_box{
-						width: 100%;
-						height: 50px;
-						position: relative;
-						&::before{
-							content: '';
-							width: 100%;
-							height: 1px;
-							background-color: $black-cl;
-							display: block;
-							position: absolute;
-							top: 50%;
-							@include transform(translateY(-50%))
-						}
-						.text_area{
-							width: 100%;
-							height: 100%;
-							border: 0;
-							outline: none;
-							background: none;
-							resize: none;
-							overflow: auto;
-							border-bottom: 1px solid $black-cl;
-							@include text($fz-text, 'SB', $lh-text-infor, $black-cl, none);
-							&::-webkit-scrollbar  {
-								display: none;
-							}
-						}
-					}
-				}
-				.submit{
 					background-color: $black-cl;
-					@include text($fz-text, 'SB', $lh-text-infor, $white-cl, upperCase);
-					width: 50px;
-					margin-left: auto;
 					border: 1px solid $black-cl;
-					background-color: $black-cl;
 					cursor: pointer;
-					@include midflex;
-					@include transition($t);
+					@include transition(all $t linear);
+					text-align: center;
+					padding-top: 8px;
+					padding-bottom: 8px;
+					@include text($fz-text, 'SB', 1, $white-cl, upperCase);
 					&:hover{
 						background-color: $white-cl;
 						color: $black-cl;
-						@include transition($t);
 					}
 				}
 			}
@@ -157,11 +100,6 @@ footer {
 		background-size: 100% 460px;
 		.container{
 			padding-top: 20px;
-			.footer__right{
-				p{
-					max-width: 50%;
-				}
-			}
 		}
 	}
 	@include mobile {
@@ -174,7 +112,7 @@ footer {
 				ul{
 					li{
 						&:nth-child(3){
-							padding: initial;
+							margin: unset;
 						}
 					}
 				}

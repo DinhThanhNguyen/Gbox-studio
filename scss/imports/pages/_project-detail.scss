@@ -1,7 +1,6 @@
 .project{
     .project__details{
         .container{
-            padding: 0;
             &::after{
                 content: '';
                 width: 100%;
@@ -15,11 +14,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            h2{
-                @include text(14px, 'Light', 22px, $black-cl, upperCase);
+            h1{
+                @include text(30px, $secondary-font, 1, $black-cl, none);
             }
         }
-        &-image{
+        &-image {
             position: relative;
             width: 100%;
             height: 530px;
@@ -59,46 +58,42 @@
             padding-top: 35px;
             display: flex;
             justify-content: space-between;
-            .description{
-                max-width: 30%;
-                h2{
-                    @include text(14px, 'Light', 22px, $black-cl, upperCase);
-                    letter-spacing: 2px;
-                }
-                p{
-                    @include text($fz-text-m, Arial, 22px, $black-cl, none);
-                }
+            h4{
+                @include text(14px, $secondary-font, 22px, $black-cl, upperCase);
+                letter-spacing: 2px;
             }
-            .client{
-                h2{
-                    @include text(14px, 'Light', 22px, $black-cl, upperCase);
-                    letter-spacing: 2px;
-                }
-                p{
-                    @include text($fz-text-m, Arial, 22px, $black-cl, none);
-                }
+            p{
+                @include text($fz-text-m, Arial, 22px, $black-cl, none);
             }
-            .aboutteam{
-                h2{
-                    @include text(14px, 'Light', 22px, $black-cl, upperCase);
-                    letter-spacing: 2px;
-                }
+            .about-team{
                 ul{
+                    @include text($fz-text-m, Arial, 22px, $black-cl, none);
                     li{
-                        @include text($fz-text-m, Arial, 22px, $black-cl, none);
+                        text-transform: none;
                         span{
-                            @include text($fz-text-m, Arial, 22px, $black-cl, upperCase);
+                            text-transform: uppercase;
                         }
                     }
+                }
+            }
+        }
+        @media screen and (min-width: 768px) and (max-width: 922px) {
+            .project__details {
+                &-image {
+                    height: 420px;
+                }
+            }
+        }
+        @media screen and (max-width: 767px) {
+            .project__details {
+                &-image {
+                    height: 250px;
                 }
             }
         }
         @include mobile{
             .project__details-control{
                 margin: 0 12px;
-            }
-            .project__details-image{
-                height: 250px;
             }
             .project__details-infor{
                 flex-direction: column-reverse;

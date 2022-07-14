@@ -1,18 +1,11 @@
-let loader = $("#preloader");
-window.addEventListener("load", function () {
-  this.setTimeout(function () {
-    loader.css("display", "none");
-  }, 500);
-});
 $(window).on("load", function () {
+  $("#pre-loading").fadeOut(1500);
   fixedMenu();
   toggleMenuInMobile();
   validateFormFooter();
   backToTop();
-  homePage();
   studioRetalPage();
   cafePage();
-  // studioDetailPage();
 
   //REPLACE SVG
   $(".svg").svgToInline();
@@ -23,33 +16,23 @@ $(window).on("load", function () {
     once: false,
     duration: 1000,
   });
+
+
+  //filter featured
+  $('.featured__controls li').on('click', function () {
+    $('.featured__controls li').removeClass('active');
+    $(this).addClass('active');
+  });
+  if ($('.featured__filter').length > 0) {
+    var containerEl = document.querySelector('.featured__filter');
+    var mixer = mixitup(containerEl);
+  }
 });
 
 //Lazy loading
-function lazyLoadingFunction() {
-  let lazyLoadInstance = new LazyLoad({
-    // Your custom settings go here
-
-    unobserve_entered: true,
-    // callback_enter: executeLazyScript
-  });
-
-  // window.lazyFunctions = {
-  //     aos: function (element) {
-  //         console.log('ready')
-  //         // element.setAttribute("data-aos", "fade-up");
-  //         // element.setAttribute("data-aos-delay", "100");
-  //     },
-  // };
-
-  // function executeLazyScript(element) {
-  //     var lazyFunctionName = element.getAttribute("data-lazy-function");
-  //     var lazyFunction = lazyFunctions[lazyFunctionName];
-  //     if (!lazyFunction) return;
-  //     lazyFunction(element);
-  // }
-}
-lazyLoadingFunction();
+let lazyLoadInstance = new LazyLoad({
+  unobserve_entered: true,
+});
 
 //Toggle menu Mobile
 function toggleMenuInMobile() {
@@ -176,56 +159,6 @@ function validateFormFooter() {
   });
 }
 
-function homePage() {
-  //Tabs UI Index - Allwork page
-  function tabUI() {
-    let projectLists = $(".project__list");
-    let tabItems = $(".project__groups ul li").toArray();
-    tabItems.forEach((tabItem, index) => {
-      const listCurrent = projectLists[index];
-
-      tabItem.onclick = function () {
-        $(".project__groups ul li.bold").removeClass("bold");
-        $(".project__list.active").removeClass("active");
-
-        this.classList.add("bold");
-        listCurrent.classList.add("active");
-      };
-    });
-  }
-  tabUI();
-
-  //Modal video
-  let popupVideo = $(".overlay");
-  let videoIframe = document.querySelector(".iframe");
-  let btnPlayVideos = $(".film").toArray();
-  let btnCloseVideo = $(".modal__close");
-  const body = $("body");
-  function showModalVideo() {
-    btnPlayVideos.forEach((btnPlayVideo) => {
-      btnPlayVideo.addEventListener("click", function () {
-        let dataSrc = this.getAttribute("data-src");
-        videoIframe.src = "https://www.youtube.com/embed/" + dataSrc;
-        popupVideo.addClass("open");
-        body.addClass("noScroll");
-      });
-    });
-    btnCloseVideo.on("click", hideModalVideo);
-    // popupVideo.keydown(function (e) {
-    //     if (e.which === 27) {
-    //         hideModalVideo()
-    //     }
-    // })
-  }
-  showModalVideo();
-  //Close Popup Video
-  function hideModalVideo() {
-    popupVideo.removeClass("open");
-    videoIframe.src = "";
-    body.removeClass("noScroll");
-  }
-}
-
 function cafePage() {
   //Gallery List Image
   let galleryList = $(".gallery__list");
@@ -260,10 +193,11 @@ function studioDetailPage() {
       cellAlign: "left",
       contain: true,
       wrapAround: true,
+      draggable: false,
       prevNextButtons: false,
       pageDots: false,
       autoPlay: true,
-      autoPlay: 2000
+      autoPlay: 5000
     });
   });
   $(".flickity-prev").on("click", function () {
@@ -286,7 +220,7 @@ function projectDetailPage() {
       prevNextButtons: true,
       pageDots: false,
       autoPlay: true,
-      autoPlay: 2000
+      autoPlay: 5000
     });
   });
 }

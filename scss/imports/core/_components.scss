@@ -1,91 +1,53 @@
-.project__list {
-    display: none;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    &-item {
-        .image {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-            a {
-                img {
-                    min-width: 100%;
-                    min-height: 100%;
-                    object-fit: cover;
-                    @include mid;
-                    @include transition($t);
-                }
-            }
-            :hover {
-                img {
-                    @include transform(translate(-50%, -50%) scale(1.05));
-                }
-            }
-        }
-        .film {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            position: relative;
+.featured__controls {
+    @include midflex;
+    margin: 20px auto;
+    & ul {
+        display: flex;
+        li {
+            padding: 0 20px;
+            @include text($fz-text, 'SB', $lh-text-infor, $black-cl, upperCase);
             cursor: pointer;
-            img {
-                min-width: 100%;
-                min-height: 100%;
-                object-fit: cover;
-            }
-            .btn-play {
-                width: 40px;
-                height: 40px;
-                @include mid;
-                svg {
-                    * {
-                        fill: rgba($color: #fff, $alpha: 0.7);
-                    }
-                }
-            }
-        }
-        .textbox__project {
-            width: 100%;
-            padding-top: 35px;
-            text-align: center;
-            .title__project {
-                @include text($fz-text, "Bold", $lh-text-infor, $black-cl, upperCase);
-            }
-            .creator__project {
-                li {
-                    @include text($fz-text, "Regular", $lh-textbox, $black-cl, none);
-                }
-            }
-        }
-    }
-    &.active {
-        display: grid;
-    }
-    @include mobile {
-        grid-template-columns: 1fr;
-        &-item {
-            .image {
-                height: 250px;
+            opacity: .7;
+            &.active {
+                opacity: 1;
             }
         }
     }
 }
-.project__groups {
-    display: flex;
-    justify-content: center;
-    ul {
-        @include midflex;
-        li {
-            padding: 0 20px;
-            @include text($fz-text, "Light", $lh-text-infor, $black-cl, upperCase);
-            cursor: pointer;
-            &.bold {
-                font-family: "SB";
+.featured__item {
+    margin-bottom: 60px;
+    &-thumbnail {
+        max-height: 200px;
+        overflow: hidden;
+    }
+    &-text {
+        margin-top: 30px;
+        text-align: center;
+        color: $black-cl;
+        font-size: $fz-text;
+        h3 {
+            margin-bottom: 12px;
+            font-family: $secondary-font;
+            line-height: $lh-text-infor;
+            text-transform: uppercase;
+            position: relative;
+            &::after {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 4px;
+                background-color: $main-bg-cl;
+                position: absolute;
+                left: 50%;
+                @include transform(translateX(-50%));
             }
         }
+        ul>li {
+            font-family: $primary-font;
+            line-height: $lh-textbox;
+            text-transform: none;
+        }
     }
-    padding-bottom: 15px;
 }
 .booking {
     display: flex;
@@ -161,7 +123,7 @@
         }
     }
 }
-.number {
+.number-order__studio {
     --sizeNumberStudio: 120px;
     background-color: $main-bg-cl;
     @include midflex;
@@ -169,14 +131,21 @@
     width: var(--sizeNumberStudio);
     height: var(--sizeNumberStudio);
     p {
-        @include text($fz-text-m, "Regular", $lh-textbox, $black-cl, upperCase);
+        @include text($fz-text-m, $primary-font, $lh-textbox, $black-cl, upperCase);
     }
-    h2 {
-        @include text(62px, "bold", 62px, $black-cl, upperCase);
+    h3 {
+        @include text(62px, $secondary-font, 1, $black-cl, upperCase);
+    }
+    @include tablet {
+        --sizeNumberStudio: 100px;
+        h3 {
+            font-size: 40px;
+            line-height: 50px;
+        }
     }
     @include mobile {
         --sizeNumberStudio: 100px;
-        h2 {
+        h3 {
             font-size: 40px;
             line-height: 50px;
         }
@@ -216,56 +185,6 @@
     }
     #picker-to {
         cursor: pointer;
-    }
-}
-.overlay {
-    background-color: rgba($color: #000000, $alpha: 0.7);
-    @include full-fixed;
-    @include hidden;
-    @include transform(scale(0));
-    transform-origin: center center;
-    @include transition(all $t easy-in-out);
-    z-index: 1000;
-    .modal {
-        position: absolute;
-        width: 75%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border: #fff 2px solid;
-        .modal__inner {
-            position: relative;
-            display: block;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-            /* Then style the iframe to fit in the container div with full height and width */
-            .iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                height: 100%;
-            }
-            .modal__close {
-                position: absolute;
-                width: 32px;
-                height: 32px;
-                top: -10px;
-                right: -10px;
-                background-color: #fff;
-                border-radius: 50%;
-                z-index: 10000;
-                cursor: pointer;
-                @include midflex;
-                @include text(18px, "Bold", normal, $black-cl, upperCase);
-            }
-        }
-    }
-    &.open {
-        @include visible;
-        @include transform(scale(1));
     }
 }
 .text-description {

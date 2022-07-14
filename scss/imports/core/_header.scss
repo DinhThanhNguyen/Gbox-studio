@@ -5,7 +5,6 @@ header{
     background-color: $title-main-cl;
     z-index: 100;
     .container{
-        width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -67,28 +66,6 @@ header{
                 }
             }
         }
-        .header-logo{
-            width: var(--WH-logo);
-            height: var(--WH-logo);
-            h1{
-                display: none;
-            }
-            .images{
-                width: 100%;
-                height: 100%;
-                position: relative;
-                a{
-                    width: 100%;
-                    height: 100%;
-                    .img{
-                        min-width: 100%;
-                        min-height: 100%;
-                        object-fit: cover;
-                        @include mid;
-                    }
-                }
-            }
-        }
         .icon-fb{
             width: 15px;
             height: 15px;
@@ -97,9 +74,7 @@ header{
     @include mobile{
         position: fixed;
         top: 0;
-        width: 100%;
         .container{
-            --WH-logo: 37px;
             .hamburgers{
                 opacity: 1;
                 pointer-events: auto;
