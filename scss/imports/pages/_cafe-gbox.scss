@@ -62,8 +62,6 @@
             gap: 20px;
             animation: opacity $t linear;
             &-item {
-                width: 100%;
-                height: 100%;
                 position: relative;
                 overflow: hidden;
                 cursor: pointer;
@@ -72,7 +70,7 @@
                     min-height: 100%;
                     @include mid;
                     object-fit: cover;
-                    @include transition($t);
+                    @include transition(all $t linear);
                 }
                 &::before {
                     content: "";
@@ -90,7 +88,6 @@
                 &:hover {
                     img {
                         @include transform(translate(-50%, -50%) scale(1.05));
-                        @include transition($t);
                     }
                     &::before {
                         opacity: 1;
@@ -119,7 +116,6 @@
             }
         }
         .container {
-            padding: 0;
             .btn-control {
                 display: flex;
                 align-items: center;
@@ -196,7 +192,10 @@
         }
     }
     .career {
-        padding: 55px 0;
+        .container {
+            margin: 55px auto;
+            border-bottom: 2px solid $black-cl;
+        }
         &__textbox {
             max-width: 50%;
             margin: auto;
@@ -211,16 +210,9 @@
                 margin-bottom: 95px;
             }
         }
-        .container::after {
-            content: "";
-            width: 100%;
-            height: 1px;
-            display: inline-block;
-            background-color: $black-cl;
-        }
         @include mobile {
             &__textbox {
-                max-width: initial;
+                max-width: unset;
             }
         }
     }

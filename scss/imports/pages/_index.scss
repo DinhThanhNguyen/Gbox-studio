@@ -46,8 +46,7 @@
             }
         }
     }
-    .project{
-        margin-bottom: 70px;
+    .featured{
         .container{
             &::after{
                 content: '';
@@ -55,7 +54,7 @@
                 height: 2px;
                 background-color: $black-cl;
                 display: block;
-                margin: 70px 0 55px 0;
+                margin: 55px 0;
             }
         }
         &__more{
